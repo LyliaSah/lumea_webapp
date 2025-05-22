@@ -11,8 +11,7 @@ final class LumeaController extends AbstractController
     #[Route('/lumea', name: 'app_lumea')]
     public function index(): Response
     {
-         $user = $this->getUser();
-        dd($this->getUser());
+        $user = $this->getUser();
 
         return $this->render('lumea/index.html.twig', [
             'user' => $user,

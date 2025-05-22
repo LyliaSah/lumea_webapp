@@ -1,77 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bienvenue sur Luméa{% endblock %}
+{% block title %}Connexion{% endblock %}
 
 {% block body %}
-<style>
-  body {
-    background-color: #f3f4f6;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  .welcome-container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 2rem;
-  }
-  .welcome-box {
-    background: #ffffff;
-    padding: 3rem;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    max-width: 500px;
-    width: 100%;
-  }
-  .welcome-box h1 {
-    font-size: 2rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    color: #1f2937;
-  }
-  .welcome-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-  .welcome-buttons a {
-    text-decoration: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-  }
-  .btn-login {
-    background-color: #3b82f6;
-    color: white;
-  }
-  .btn-login:hover {
-    background-color: #2563eb;
-  }
-  .btn-register {
-    background-color: #10b981;
-    color: white;
-  }
-  .btn-register:hover {
-    background-color: #059669;
-  }
-</style>
+<div class="container min-vh-100 d-flex justify-content-center align-items-center" style="background-color: #f3f4f6;">
+  <div class="card shadow-lg p-4" style="max-width: 400px; width: 100%; border-radius: 1rem;">
+    <h2 class="text-center mb-4" style="color: #008080;">Connexion</h2>
 
-<div class="welcome-container">
-  <div class="welcome-box">
-    <h1>Bienvenue sur <span style="color: #3b82f6;">Luméa</span></h1>
-    <p>Accédez à votre espace personnel ou faites une demande d'enregistrement.</p>
-    
-    <div class="welcome-buttons">
-      <a href="{{ path('app_home_connexion') }}" class="btn-login">Se connecter</a>
-      <a href="{{ path('app_demande_enregistrement') }}" class="btn-register">S'enregistrer</a>
-    </div>
+    <form method="post" action="{{ path('app_login') }}" autocomplete="username" novalidate data-turbo="false">
+      <div class="mb-3">
+        <label for="email" class="form-label" style="color: #1F2937;">Adresse e-mail</label>
+        <input type="text"
+               id="email"
+               name="_username"
+               required
+               autofocus
+               autocomplete="email"
+               placeholder="votre.email@example.com"
+               class="form-control"
+               value="{{ email|default('')|e }}">
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label" style="color: #1F2937;">Mot de passe</label>
+        <input type="password"
+               id="password"
+               name="_password"
+               required
+               autocomplete="current-password"
+               placeholder="••••••••"
+               class="form-control">
+      </div>
+
+      <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+      <button type="submit" class="btn w-100 mt-3 fw-bold text-white" style="background-color: #008080;">Se connecter</button>
+
+      <p class="text-center mt-4 mb-0" style="color: #1F2937;">
+        Pour s'inscrire
+        <a href="{{ path('app_demande_enregistrement') }}" style="color: #cc7000; font-weight: 600;">cliquez ici</a>
+      </p>
+    </form>
   </div>
 </div>
 {% endblock %}
