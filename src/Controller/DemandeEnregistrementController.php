@@ -23,14 +23,14 @@ public function register(Request $request, EntityManagerInterface $em, UserPassw
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
-        $plainPassword = $form->get('plainPassword')->getData();
+        $plainPassword = $form->get('password')->getData();
         $hashedPassword = $passwordHasher->hashPassword($user, $plainPassword);
         $user->setPassword($hashedPassword);
 
         $em->persist($user);
         $em->flush();
 
-        return $this->redirectToRoute('app_login');
+        return $this->redirectToRoute('app_lumea');
     }
 
     return $this->render('demande_enregistrement/index.html.twig', [

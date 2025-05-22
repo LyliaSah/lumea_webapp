@@ -104,7 +104,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function setPrenom(string $prenom): static
     {
-        $this->prenom = $prenom;
+        $this->prenom = $prenom= ucfirst($prenom);;
 
         return $this;
     }
