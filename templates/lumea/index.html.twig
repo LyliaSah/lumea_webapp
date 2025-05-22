@@ -3,272 +3,127 @@
 {% block title %}Présentation du projet{% endblock %}
 
 {% block body %}
-<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lumea</title>
-    {% if app.user %}
-    <h1>Bienvenue {{ app.user.prenom|capitalize }} sur Luméa 🌟</h1>
+<div class="container mt-4">
+
+    {% if app.user and app.user.prenom is defined %}
+        <h1 class="text-center">Bienvenue {{ app.user.prenom|capitalize }} sur Lumea 🌟</h1>
     {% else %}
-  <h1>Bienvenue sur Luméa 🌟</h1>
-{% endif %}
+        <h1>Bienvenue sur Lumea 🌟</h1>
+    {% endif %}
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</head>
-  <body>
-    <h1></h1>
-    <div class="container m-0 -0">
-        <div class="row">
-          <div class="col-5 text-start"></a>
-          <img src="/public/images/logoT.svg" class="card-img-top" alt="public/images/logoT.svg"><br>
-            Faciliter l'éducation sexuelle des jeunes
-          </div>
-          <div class="col-1">
+    <div class="row align-items-center my-4">
+        <div class="col-md-5">
+            <img src="{{ asset('images/logoT.svg') }}" class="img-fluid" alt="Logo Lumea">
+            <p>Faciliter l'éducation à la vie affective, reationnelle et sexuelle des jeunes</p>
         </div>
-          <div class="col-6">
+        <div class="col-md-7">
             <ul class="nav justify-content-end">
+                <li class="nav-item"><a class="nav-link active" href="{{ path('app_lumea') }}">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Notre équipe</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Nos valeurs - nos missions</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Nous contacter</a></li>
+                {% if app.user %}
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="home" href="home.html">Accueil</a>
+                    <form action="{{ path('app_logout') }}" method="post">
+                        <button class="btn btn-canard" type="submit">Déconnexion</button>
+                    </form>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Video</a>
-                </li>
-                <li class="nav-item">
-                 <!-- bouton podcasts et connexion (mettre lien avec boite dialogue) -->
-                  <a class="nav-link" href="#">Podcasts</a>
-                </li>
-                <li class="nav-item">
-                 <form action="{{ path('app_logout') }}" method="post">
-                    <button type="submit">Déconnexion</button>
-                </form>
-
-                </li>
-              </ul>
-          </div>
+                {% endif %}
+            </ul>
         </div>
-      </div>
-      <!-- 2eme partie : titre + paragraphe STANDALONE COLUMN CLASSE 25% et 75%-->
-    </body> 
     </div>
-      <div class="col-sm-9 p-3">
-      Bienvenue sur Lumea ! Explorez un espace conçu pour les jeunes, où vous trouverez des informations essentielles et des ressources adaptées pour vous accompagner en matière de sexualité. Découvrez tout ce que vous devez savoir sur le corps et ses transformations, la prévention des IST, les moyens de contraception, et le consentement. 
-    <!-- 3eme partie : bouton je cherche une info : BUTTON VARIANTS-->
-  </div>
+
+    <div class="mb-5">
+        <p>
+            Lumea est un espace dédié aux jeunes pour mieux comprendre la vie affective, relationnelle et la sexualité.
+Ici, tu trouveras des informations fiables, des ressources utiles et des outils pédagogiques pour t’aider à :
+
+✅ développer ton estime de toi
+✅ faire des choix éclairés
+✅ construire des relations respectueuses
+✅ prévenir les violences et les discriminations
+
+Lumea, c’est un coup de pouce pour t'accompagner dans ton parcours, avec bienveillance et sans tabou.
+        <div class="d-flex flex-column flex-md-row justify-content-center gap-3 my-4">
+    <button class="btn btn-canard">J'accède aux fiches pratiques</button>
+    <button class="btn btn-canard">J'accède aux vidéos et podcasts</button>
+    <button class="btn btn-canard">J'accède aux quiz</button>
+    <button class="btn btn-canard">J'accède aux contacts d'urgence</button>
+    <button class="btn btn-canard">Les professionnels autour de moi</button>
 </div>
-      </div> <button type="button" class="btn btn-danger">Je cherche une information</button><br>
-          </li><br>
-        </ul>
-      </div>
-    </div>
-  </div>
-    <!-- 4eme partie : Inserer photo : COMPONENT CARD IMAGE CAPS-->
-    <div class="card mb-3">
-      <img src="assets/main.svg" class="card-img-top" alt="assets/main.svg"><br>
-      <div class="card-body">
-        <h5 class="card-title">A propos de la sexualité</h2><br>
-        </div>
-     </div>
-    <!-- 5eme partie : Inserer photo : COMPONENT CARD GRID CARD MD3 G4 transformée en G6 (avec rajout de 2 cards)-->
-    </div> <div class="row row-cols-1 row-cols-md-3 g-6">
-      <div class="col">
-        <div class="card h-100">
-          <img src="assets/image.svg" class="card-img-top" alt="assets/image.svg">
-          <div class="card-body">
-            <h5 class="card-title"> Connaitre son corps et sa sexualité</h5>
-            <p class="card-text"> La puberté, les transformations du corps, les hormones et le désir sexuel...</p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="assets/image.svg" class="card-img-top" alt="assets/image.svg">
-          <div class="card-body">
-            <h5 class="card-title"> S’informer sur les infections et les maladies</h5>
-            <p class="card-text">Les IST, les maladies de la sphère sexuelle, se protéger et protéger les autres...</p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="assets/image.svg" class="card-img-top" alt="assets/image.svg">
-          <div class="card-body">
-            <h5 class="card-title"> Comprendre la contraception et la grossesse</h5>
-            <p class="card-text"> Choisir sa contraception, se préparer à accueillir un nouvel être...</p>
-          </div>
-        </div>
-      </div>
-      <div class="col"> <br>
-        <div class="card h-100">
-          <img src="assets/image.svg" class="card-img-top" alt="assets/image.svg">
-          <div class="card-body">
-            <h5 class="card-title"> Lutter contre les violences et les discriminations</h5>
-            <p class="card-text"> Le consentement, exprimer un refus, la transphobie, les réseaux sociaux, la pornographie...</p>
-          </div>
-        </div>
-      </div>
-      <div class="col"> <br>
-        <div class="card h-100">
-          <img src="assets/image.svg" class="card-img-top" alt="assets/image.svg">
-          <div class="card-body">
-            <h5 class="card-title"> Identifier ses émotions et gérer ses relations avec les autres</h5>
-            <p class="card-text"> En famille, entre amis, à l’école, sur les réseaux sociaux, savoir s’affirmer...</p>
-          </div>
-        </div>
-      </div>
-      <div class="col"> <br>
-        <div class="card h-100">
-          <img src="assets/image.svg" class="card-img-top" alt="assets/image.svg">
-          <div class="card-body">
-            <h5 class="card-title"> Connaitre ses droits et faire face aux abus</h5>
-            <p class="card-text"> Ce que dit la loi sur mes droits, détecter les abus, savoir demander aide et conseil... </p>
-          </div>
-        </div>
-      </div>
-      <!-- 6eme partie : caroussel-->
-    </div>
-      <div id="carouselExampleDark" class="carousel carousel-dark slide">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-       <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="10000">
-## ligne infra à copier##
-           <img src="{{ asset('images/carroussel1.svg') }}" class="d-block w-100" alt="Image du carrousel">
-              <h5>A la une</h5>  <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="10000">
-            <img src="public/images/carroussel1.svg" class="d-block w-100" alt="assets/carroussel1.svg">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>A la une</h5>
-              <p>Une ligne d'écoute, d'information et d'orientation gratuite et anonyme.</p>
-            </div>
-          </div>
-          <div class="carousel-item" data-bs-interval="2000">
-            <img src="public/images/carroussel2.svg" class="d-block w-100" alt="assets/carroussel2.svg">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>A la une</h5>
-              <p>Rejoins-nous désormais sur insta.</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="public/images/carroussel3.svg" class="d-block w-100" alt="assets/carroussel3.svg">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>A la une</h5>
-              <p>Retour sur la journée des droits de la femme.</p>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-          </div>
-      <!-- 7eme partie : FAQ accordéon tjs ouvert : COMPONENT ACCORDION ALWAYS OPEN-->
-      <div class="accordion" id="accordionPanelsStayOpenExample"> <br> <br>
-        <div class="accordion-item"> <br>
-          <h5 class="accordion-header"> FAQ - Questions les plus fréquentes<br>
-          
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-              Qu’est-ce qu’une IST?
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
-            <div class="accordion-body">
-              <strong> Une infection sexuellement transmissible (IST) est une infection qui se transmet principalement par contact sexuel, y compris le sexe vaginal, anal ou oral. Les IST peuvent être causées par des bactéries, des virus, des parasites ou d'autres micro-organismes. Les IST peuvent être de type: Bactériennes (Chlamydia, Gonorrhée, Syphilis), Virales (VIH, Herpès génital, Hépatite B et C, Papillomavirus humain), Parasitaires (Trichomonase), Fongiques (mycoses vaginales). Le dépistage régulier est crucial car de nombreuses IST peuvent être asymptomatiques. Un diagnostic précoce permet un traitement rapide et réduit le risque de complications à long terme, comme l'infertilité ou les cancers. Si vous pensez être à risque ou présentez des symptômes, il est important de consulter un professionnel de santé pour un dépistage et un traitement approprié 
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-              Je subis des violences, qui peut m’aider?
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              <strong> Si vous subissez des violences, il est crucial de savoir que vous n'êtes pas seul et que de l'aide est disponible. Voici les ressources et les démarches à suivre pour obtenir de l'aide : Contacter les Services d'Urgence en cas de danger immédiat, appelez le 112 pour obtenir une assistance immédiate. Parler à un Adulte de Confiance comme un parent, un enseignant, ou un membre de la famille. Ils peuvent vous aider à trouver des solutions et à vous mettre en contact avec des professionnels. Consulter des professionnels de Santé, ils peuvent vous fournir un soutien médical et psychologique. Ils sont tenus au secret professionnel et peuvent vous orienter vers des ressources spécialisées. Utiliser les Lignes d'Écoute et les Services d'Aide : Numéro d'écoute national : 3919 (Violences Femmes Info) est disponible pour les victimes de violences, leur entourage, et les professionnels concernés. Se Rendre dans des Structures d'Accueil : Des centres d'accueil et des maisons des adolescents (MDA) offrent un soutien aux jeunes en difficulté. Vous pouvez y trouver des conseils, un soutien psychologique, et des orientations vers d'autres services.
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-              Comment obtenir un moyen de contraception?
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              <strong> Les jeunes peuvent avoir accès à divers moyens de contraception, souvent gratuits et confidentiels. Voici comment obtenir un moyen de contraception si vous êtes jeune. L’obtention d’une Contraception nécessite une consultation médicale auprès d’un médecin ou d’une sage-femme. Prenez rendez-vous avec un médecin généraliste, un gynécologue, ou une sage-femme. La consultation est gratuite et confidentielle pour les jeunes de moins de 26 ans. Vous pouvez également vous rendre dans un centre de planification ou d'Éducation Familiale (CPEF) où des professionnels de santé peuvent vous conseiller et vous prescrire une contraception. Depuis le 1er janvier 2023, la contraception d'urgence (pilule du lendemain) est disponible sans ordonnance en pharmacie et est prise en charge à 100 % par l'Assurance Maladie pour les mineurs et les majeurs avec une couverture sociale. Tous les moyens de contraception remboursables par l'Assurance Maladie sont gratuits pour les moins de 26 ans. 
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-              Qu’est-ce que le consentement ?
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              <strong> Le consentement est un concept fondamental qui signifie donner son accord. Le consentement doit être donné sans pression, menace ou manipulation. Cela signifie que vous devez vous sentir à l'aise et en sécurité pour dire "oui" ou "non". Vous devez comprendre ce à quoi vous donnez votre accord. Par exemple, dans une relation, cela signifie savoir ce que l'autre personne propose et être d'accord avec cela. Vous pouvez changer d'avis à tout moment. Même si vous avez dit "oui" au début, vous avez le droit de dire "non" plus tard si vous ne vous sentez plus à l'aise. Le consentement est spécifique à chaque situation. Dire "oui" à une chose ne signifie pas que vous êtes d'accord pour tout. Par exemple, accepter un baiser ne signifie pas que vous acceptez d'aller plus loin. Il est important de communiquer clairement avec l'autre personne. Utilisez des mots pour exprimer ce que vous ressentez et ce que vous voulez. Écoutez aussi ce que l'autre personne dit et respectez ses limites. Le consentement va dans les deux sens. Vous devez respecter les limites et les désirs de l'autre personne, tout comme elle doit respecter les vôtres. Le consentement assure que chacun se sent respecté et en sécurité dans une relation. Si vous avez des questions ou des doutes, n'hésitez pas à en parler avec un adulte de confiance ou un professionnel de santé.
-              </div>
-            </div>
-            <!-- 8eme partie : 2 boutons : helpers colors and background-->
-          </div> <span class="badge text-bg-danger">En savoir plus</span>
-          <span class="badge text-bg-secondary">Tester vos connaissances</span>
-          </div>
-      </div>
-          </div> <!-- 9eme partie : questionnaire contact : FORMS LAYOUT mix avec FORM CONTROL-->
-          <form>
-            <div class="form"> <br>
-              <div class="col-md-6"> 
-              <h5 class="form-header"> Nous contacter
-              <div class="col-md-6"> <br>
-              <h6 label for="exampleFormControlInput1" class="form-label">Nom</label>
-              <input type="name" class="form-control" id="exampleFormControlInput2" placeholder="Dupont">
-            </div>
-            <div class="col-md-6">
-              <h6 label for="exampleFormControlInput2" class="form-label">Prénom</label>
-              <input type="firstname" class="form-control" id="exampleFormControlInput2" placeholder="Marie">
-            </div>
-            <div class="col-md-6">
-              <h6 label for="exampleFormControlInput3" class="form-label">Email</label>
-              <input type="email" class="form-control" id="exampleFormControlInput3" placeholder="name@example.com">
-            </div>
-            <div class="col-md-6">
-              <h6 label for="exampleFormControlTextarea1" class="form-label">Message</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea> <br>
-              <h2 button type="submit" class="btn btn-dark">Envoyer</button>
-              </div>
-         <!-- footer--><footer>
-          <footer class="footer py-2 d-flex justify-content-center"> <br>
-            <div class="container"> <br> <br>
-            </div class="row">
-             <div class="col-7 flex align-items-center"> 
-              <p class="text-white my-0">&copy; 2025 France Lumea Entreprise - Tous droits réservés.
-              </div>
-              <div class="col-5">
-          <ul class="nav text-center">
-            
-      <footer class="footer">
-        <div class="footer_container">
-            <p><a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Nous contacter</a></p>
-            <p><a href="#" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Le projet Lumea</a></p>
-            <p><a href="#" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Presse / Actualité</a></p>
-          <div class="footer_legal">
-            <p class="footer_legal-item">&copy; 2025 France Lumea Entreprise  Tous droits réservés</p>
-            
-            
 
 
-</html>
+{# Carrousel - en haut de la page #}
+<div id="carouselExampleDark" class="carousel carousel-dark slide mt-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="5000">
+            <img src="{{ asset('images/carroussel1.svg') }}" class="d-block w-100" alt="Slide 1">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>A la une</h5>
+                <p>Une ligne d'écoute, d'information et d'orientation gratuite.</p>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img src="{{ asset('images/carroussel2.svg') }}" class="d-block w-100" alt="Slide 2">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Rejoins-nous sur Instagram</h5>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{{ asset('images/carroussel3.svg') }}" class="d-block w-100" alt="Slide 3">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Journée des droits de la femme</h5>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+
+{# Bloc de cartes après le carrousel #}
+<div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
+    {% for topic in [
+        {
+            'title': "Connaitre son corps",
+            'desc': "La puberté, les transformations du corps, les hormones et le désir sexuel... Contenu adapté pour un public à partir de 12 ans"
+        },
+        {
+            'title': "Gérer ses émotions et ses relations",
+            'desc': "En famille, entre amis, à l’école, savoir s’affirmer... Contenu adapté pour un public à partir de 12 ans"
+        },
+        {
+            'title': "S’informer sur les infections et les maladies",
+            'desc': "Les IST, les maladies de la sphère sexuelle, se protéger et protéger les autres... Contenu réservé à un public de plus de 15 ans"
+        },
+        {
+            'title': "Comprendre la contraception et la grossesse",
+            'desc': "Choisir sa contraception, se préparer à accueillir un nouvel être... Contenu réservé à un public de plus de 15 ans"
+        },
+        {
+            'title': "Lutter contre les violences et les discriminations",
+            'desc': "Consentement, transphobie, réseaux sociaux, pornographie... Contenu réservé à un public de plus de 15 ans"
+        },
+        {
+            'title': "Connaitre ses droits et faire face aux abus",
+            'desc': "Ce que dit la loi, détecter les abus, demander de l’aide... Contenu réservé à un public de plus de 15 ans"
+        }
+    ] %}
+        <div class="col">
+            <div class="card h-100">
+                <img src="{{ asset('images/image.svg') }}" class="card-img-top" alt="{{ topic.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ topic.title }}</h5>
+                    <p class="card-text">{{ topic.desc }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
 {% endblock %}
+
 
