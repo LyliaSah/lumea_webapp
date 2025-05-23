@@ -20,6 +20,7 @@ security:
             form_login:
                 login_path: app_login  # <- route vers la page publique d'accueil
                 check_path: app_login
+                default_target_path: app_lumea # Redirection lumea après connexion réussie
              
 
             logout:
@@ -36,11 +37,14 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/login, roles: PUBLIC_ACCESS }
-        - { path: ^/, roles: PUBLIC_ACCESS }
+        - { path: ^/fiche_connaitre_corps, roles: ROLE_USER}
+        - { path: ^/videos, roles: ROLE_USER}
+        - { path: ^/fiches-pratiques, roles: ROLE_USER}
         - { path: ^/lumea, roles: ROLE_USER }
         - { path: ^/connexion, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/enregistrement, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login, roles: PUBLIC_ACCESS }
+        - { path: ^/, roles: PUBLIC_ACCESS }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 

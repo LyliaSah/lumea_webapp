@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vidéos éducatives{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <div class="text-start mb-3">
+        <a href="{{ path('app_lumea') }}" class="btn btn-canard">
+            ← Retour à l'accueil
+        </a>
+    </div>
+
+    <h1 class="mb-4">Vidéos éducatives</h1>
+    <p class="lead">Découvrez des vidéos pédagogiques autour de la vie affective, relationnelle et sexuelle.</p>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
+
+        {# 1. La loi et la sexualité #}
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">La loi et la sexualité</h5>
+                    <p class="card-text">
+                        Cette vidéo explique ce que dit la loi sur la sexualité, la majorité sexuelle, le consentement, etc.
+                    </p>
+                    <a href="https://www.lumni.fr/video/la-loi-et-la-sexualite#containerType=program&containerSlug=sexotuto"
+                       class="btn btn-primary"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        ▶ Accéder à la vidéo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {# 2. La contraception (1) #}
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Sexualité : La contraception (1)</h5>
+                    <p class="card-text">
+                        Une vidéo qui présente les différents moyens de contraception adaptés aux jeunes.
+                    </p>
+                    <a href="https://www.lumni.fr/video/la-contraception-1" 
+                       class="btn btn-primary" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        ▶ Accéder à la vidéo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {# 3. Les règles #}
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Les règles</h5>
+                    <p class="card-text">
+                        Comprendre ce qu’il se passe dans le corps pendant les règles, sans tabou.
+                    </p>
+                    <a href="https://www.lumni.fr/video/les-regles" 
+                       class="btn btn-primary" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        ▶ Accéder à la vidéo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {# 4. La contraception (Sexotuto) #}
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Sexualité : La contraception (Sexotuto)</h5>
+                    <p class="card-text">
+                        Une série extraite de l’émission <strong>Sexotuto</strong> pour mieux comprendre la contraception.
+                    </p>
+                    <a href="https://www.lumni.fr/video/la-contraception-1#containerType=program&containerSlug=sexotuto" 
+                       class="btn btn-primary" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        ▶ Accéder à la vidéo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {# 5. L’intimité #}
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">L’intimité</h5>
+                    <p class="card-text">
+                        Une vidéo pour comprendre ce que signifie l’intimité, le respect de soi et des autres.
+                    </p>
+                    <a href="https://www.lumni.fr/video/l-intimite#containerType=program&containerSlug=sexotuto" 
+                       class="btn btn-primary" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        ▶ Accéder à la vidéo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {# 6. Les infections sexuellement transmissibles (IST) #}
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Les IST (Infections Sexuellement Transmissibles)</h5>
+                    <p class="card-text">
+                        Cette vidéo pédagogique explique les risques, les symptômes, et les moyens de prévention des IST.
+                    </p>
+                    <a href="https://www.lumni.fr/video/les-infections-sexuellement-transmissibles-ist#containerType=program&containerSlug=sexotuto" 
+                       class="btn btn-primary" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        ▶ Accéder à la vidéo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

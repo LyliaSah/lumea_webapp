@@ -22,7 +22,7 @@ Symfony ne modifie pas automatiquement la base de données. Il faut :
 1/ Créer une migration : make:migration
 2/ Lancer la migration : doctrine:migration:migrate
 
-* php bin/console make:controller Login : sert à générer automatiquement un contrôleur Symfony nommé LoginController, ainsi qu'un template Twig associé
+* php bin/console make:controller Login : sert à générer automatiquement un contrôleur Symfony nommé LoginController, ainsi qu'un template Twig associé (but créer un controller nouveau pour créer un nouveau template (nouvelle page))
 
 * php bin/console make:form : sert à générer automatiquement une classe de formulaire Symfony.
 C’est très utile pour créer des formulaires personnalisés liés à une entité (ou non) 
@@ -32,6 +32,10 @@ C’est très utile pour créer des formulaires personnalisés liés à une enti
 php bin/console make:user : sert à générer automatiquement une classe User prête à l'emploi pour le système d'authentification Symfony.
 
 * php bin/console make:controller HomeConnexionController : est utilisée dans le projet Symfony pour générer automatiquement un nouveau contrôleur.
+
+* php bin/console debug:router | grep fiche : pour verifier si une route existe
+
+  
 
 ## Autres
 

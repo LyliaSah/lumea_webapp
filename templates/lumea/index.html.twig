@@ -3,35 +3,7 @@
 {% block title %}Présentation du projet{% endblock %}
 
 {% block body %}
-<div class="container mt-4">
 
-    {% if app.user and app.user.prenom is defined %}
-        <h1 class="text-center">Bienvenue {{ app.user.prenom|capitalize }} sur Lumea 🌟</h1>
-    {% else %}
-        <h1>Bienvenue sur Lumea 🌟</h1>
-    {% endif %}
-
-    <div class="row align-items-center my-4">
-        <div class="col-md-5">
-            <img src="{{ asset('images/logoT.svg') }}" class="img-fluid" alt="Logo Lumea">
-            <p>Faciliter l'éducation à la vie affective, reationnelle et sexuelle des jeunes</p>
-        </div>
-        <div class="col-md-7">
-            <ul class="nav justify-content-end">
-                <li class="nav-item"><a class="nav-link active" href="{{ path('app_lumea') }}">Accueil</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Notre équipe</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Nos valeurs - nos missions</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Nous contacter</a></li>
-                {% if app.user %}
-                <li class="nav-item">
-                    <form action="{{ path('app_logout') }}" method="post">
-                        <button class="btn btn-canard" type="submit">Déconnexion</button>
-                    </form>
-                </li>
-                {% endif %}
-            </ul>
-        </div>
-    </div>
 
     <div class="mb-5">
         <p>
@@ -48,8 +20,10 @@ Lumea, c’est un coup de pouce pour t'accompagner dans ton parcours, avec bienv
     <a href="{{ path('app_fiches_pratiques') }}" class="btn btn-canard">
     J'accède aux fiches pratiques
 </a>
-
-    <button class="btn btn-canard">J'accède aux vidéos et podcasts</button>
+<a href="{{ path('app_videos') }}" class="btn btn-canard">
+    J'accède aux vidéos et podcasts
+</a>
+  
     <button class="btn btn-canard">J'accède aux quiz</button>
     <button class="btn btn-canard">J'accède aux contacts d'urgence</button>
     <button class="btn btn-canard">Les professionnels autour de moi</button>
@@ -87,45 +61,8 @@ Lumea, c’est un coup de pouce pour t'accompagner dans ton parcours, avec bienv
     </button>
 </div>
 
-{# Bloc de cartes après le carrousel #}
-<div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
-    {% for topic in [
-        {
-            'title': "Connaitre son corps",
-            'desc': "La puberté, les transformations du corps, les hormones et le désir sexuel... Contenu adapté pour un public à partir de 12 ans"
-        },
-        {
-            'title': "Gérer ses émotions et ses relations",
-            'desc': "En famille, entre amis, à l’école, savoir s’affirmer... Contenu adapté pour un public à partir de 12 ans"
-        },
-        {
-            'title': "S’informer sur les infections et les maladies",
-            'desc': "Les IST, les maladies de la sphère sexuelle, se protéger et protéger les autres... Contenu réservé à un public de plus de 15 ans"
-        },
-        {
-            'title': "Comprendre la contraception et la grossesse",
-            'desc': "Choisir sa contraception, se préparer à accueillir un nouvel être... Contenu réservé à un public de plus de 15 ans"
-        },
-        {
-            'title': "Lutter contre les violences et les discriminations",
-            'desc': "Consentement, transphobie, réseaux sociaux, pornographie... Contenu réservé à un public de plus de 15 ans"
-        },
-        {
-            'title': "Connaitre ses droits et faire face aux abus",
-            'desc': "Ce que dit la loi, détecter les abus, demander de l’aide... Contenu réservé à un public de plus de 15 ans"
-        }
-    ] %}
-        <div class="col">
-            <div class="card h-100">
-                <img src="{{ asset('images/image.svg') }}" class="card-img-top" alt="{{ topic.title }}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ topic.title }}</h5>
-                    <p class="card-text">{{ topic.desc }}</p>
-                </div>
-            </div>
-        </div>
-    {% endfor %}
-</div>
+
+    </div>
 
 {% endblock %}
 
