@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiches pratiques{% endblock %}
+
+{% block body %}
+
+<h1 class="mt-4 mb-3">Fiches pratiques</h1>
+
+<div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
+    {% for topic in [
+        {
+            'title': "Connaitre son corps",
+            'desc': "La puberté, les transformations du corps, les hormones et le désir sexuel... Contenu adapté pour un public à partir de 12 ans"
+        },
+        {
+            'title': "Gérer ses émotions et ses relations",
+            'desc': "En famille, entre amis, à l’école, savoir s’affirmer... Contenu adapté pour un public à partir de 12 ans"
+        },
+        {
+            'title': "S’informer sur les infections et les maladies",
+            'desc': "Les IST, les maladies de la sphère sexuelle, se protéger et protéger les autres... Contenu réservé à un public de plus de 15 ans"
+        },
+        {
+            'title': "Comprendre la contraception et la grossesse",
+            'desc': "Choisir sa contraception, se préparer à accueillir un nouvel être... Contenu réservé à un public de plus de 15 ans"
+        },
+        {
+            'title': "Lutter contre les violences et les discriminations",
+            'desc': "Consentement, transphobie, réseaux sociaux, pornographie... Contenu réservé à un public de plus de 15 ans"
+        },
+        {
+            'title': "Connaitre ses droits et faire face aux abus",
+            'desc': "Ce que dit la loi, détecter les abus, demander de l’aide... Contenu réservé à un public de plus de 15 ans"
+        }
+    ] %}
+        <div class="col">
+            <div class="card h-100">
+                <img src="{{ asset('images/image.svg') }}" class="card-img-top" alt="{{ topic.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ topic.title }}</h5>
+                    <p class="card-text">{{ topic.desc }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

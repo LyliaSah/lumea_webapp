@@ -18,13 +18,14 @@ security:
             provider: app_user_provider
 
             form_login:
-                login_path: app_home_connexion  # <- route vers la page publique d'accueil
+                login_path: app_login  # <- route vers la page publique d'accueil
                 check_path: app_login
-                default_target_path: app_lumea 
+             
 
             logout:
                 path: app_logout               # <- nom de la route que tu vas utiliser
-                target: app_home_connexion 
+                # where to redirect after logout
+                # target: app_any_route
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
@@ -35,6 +36,8 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
+        - { path: ^/login, roles: PUBLIC_ACCESS }
+        - { path: ^/, roles: PUBLIC_ACCESS }
         - { path: ^/lumea, roles: ROLE_USER }
         - { path: ^/connexion, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/enregistrement, roles: IS_AUTHENTICATED_ANONYMOUSLY }

@@ -6,9 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-final class LoginController extends AbstractController
+final class LogoutController extends AbstractController
 {
-    #[Route('/', name: 'app_login')]
+    #[Route('/logout', name: 'app_logout')]
     public function index(): Response
     {
              $user = $this->getUser();
