@@ -10,7 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use App\Entity\AppUser;
+use App\Entity\User;
 
 class FormulaireEnregistrerType extends AbstractType
 {
@@ -52,7 +52,7 @@ class FormulaireEnregistrerType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => AppUser::class,
+            'data_class' => User::class,
         ]);
     }
 }

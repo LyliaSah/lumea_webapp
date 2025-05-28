@@ -27,8 +27,8 @@ security:
                 target: app_logout_success       # Nom de route correct pour la redirection
 
     access_control:
-        - { path: ^/demande/enregistrement, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/logout$, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/demande/enregistrement, roles: ROLE_DIRECTEUR}
         - { path: ^/fiche_connaitre_corps, roles: ROLE_USER }
         - { path: ^/videos, roles: ROLE_USER }
         - { path: ^/fiches-pratiques, roles: ROLE_USER }
