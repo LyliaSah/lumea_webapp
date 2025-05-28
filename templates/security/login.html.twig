@@ -7,6 +7,12 @@
   <div class="card shadow-lg p-4" style="max-width: 400px; width: 100%; border-radius: 1rem;">
     <h2 class="text-center mb-4" style="color: #008080;">Connexion</h2>
 
+    {% if erreur %}
+      <div class="alert alert-danger text-center" role="alert">
+        {{ erreur.messageKey|trans(erreur.messageData, 'security') }}
+      </div>
+    {% endif %}
+
     <form method="post" action="{{ path('app_login') }}" autocomplete="username" novalidate data-turbo="false">
       <div class="mb-3">
         <label for="email" class="form-label" style="color: #1F2937;">Adresse e-mail</label>
@@ -18,7 +24,7 @@
                autocomplete="email"
                placeholder="votre.email@example.com"
                class="form-control"
-               value="{{ email|default('')|e }}">
+               value="{{ last_username|default('')|e }}">
       </div>
 
       <div class="mb-3">

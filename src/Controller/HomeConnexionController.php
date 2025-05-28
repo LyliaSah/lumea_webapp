@@ -9,15 +9,18 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class HomeConnexionController extends AbstractController
 {
-    #[Route('/connexion', name: 'app_home_connexion')]
+    #[Route('/', name: 'app_home_connexion')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-         if ($this->getUser()) {
+        // Si l'utilisateur est déjà connecté, redirige vers 'app_lumea'
+        if ($this->getUser()) {
             return $this->redirectToRoute('app_lumea');
         }
-        // Récupère l'erreur de connexion s'il y en a
+
+        // Récupère l'erreur de connexion (le cas échéant)
         $error = $authenticationUtils->getLastAuthenticationError();
-        $email = $authenticationUtils->getLastUsername(); 
+        // Récupère le dernier nom d'utilisateur/email saisi
+        $email = $authenticationUtils->getLastUsername();
 
         return $this->render('home_connexion/index.html.twig', [
             'email' => $email,

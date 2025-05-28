@@ -12,6 +12,9 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     {% endblock %}
 
+</head>
+<body>
+
 {# Début du header #}
 <div class="container mt-4">
 
@@ -43,10 +46,17 @@
         </div>
     </div>
 
+    {# Affichage des messages flash #}
+    {% for label, messages in app.flashes %}
+        <div class="alert alert-{{ label == 'danger' ? 'danger' : (label == 'success' ? 'success' : 'info') }} alert-dismissible fade show" role="alert">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
 
 {# fin du header #}
-
-
 
 <style>
 .btn-canard {
@@ -61,13 +71,6 @@
     border-color: #006666 !important;
 }
 </style>
-
-
-</head>
-<body>
-
-<!-- autres liens -->
-</nav>
 
 {% block body %}{% endblock %}
 
@@ -94,10 +97,6 @@
     </div>
 </footer>
 {# Fin du footer #}
-
-
-
-
 
 {% block javascripts %}
     {# {{ encore_entry_script_tags('app') }} #}

@@ -83,6 +83,7 @@ Bienvenue sur lumea — LUMEA est une application web sécurisée et éducative 
   - [Installer les bundles nécessaires](#installer-les-bundles-nécessaires)
   - [Démarrage](#démarrage)
   - [Choix des couleurs](#choix-des-couleurs)
+  - [Quelques autres commandes utiles](#quelques-autres-commandes-utiles)
  
 ---
  
@@ -113,11 +114,14 @@ Zend Engine v4.3.6, Copyright (c) Zend Technologies
  
 - Composer
 
-- npm install
-
 - Bootstrap version 5.3.6 CSS+JS afin de gagner du temps sur le style (grilles, boutons, champs, alertes, etc.), avoir un rendu cohérent et professionnel sans trop d'effort, pour que le site s’adapte bien sur tous les écrans (car Bootstrap est responsive par défaut).
   
 - Touche F 12 pour analyser et déboguer une page web
+
+- WSL2 associé à au système d'exploitation UBUNTU : Distribition Linux Ubuntu 24.04.1 LTS (GNU/Linux 5.15.153.1-microsoft-standard-WSL2 x86_64)
+      Ubuntu 24.04.1 LTS : choisie pour sa version stable à long terme (LTS) du système d’exploitation Linux Ubuntu.
+      WSL2 : permet d'exécuter Linux directement sous Windows, sans machine virtuelle complète.
+      x86_64 : architecture 64 bits pour processeurs Intel/AMD.
  
 ### Installation :
 
@@ -127,7 +131,7 @@ Exécutez la commande *cd lumea_webapp* pour se rendre dans le dossier depuis le
  
 1) composer install afin d'installer toutes les dépendances composer du projet.
  
-2) npm install afin d'installer toutes les dépendances npm du projet.
+2) npm install afin d'installer toutes les dépendances npm du projet 
  
 4) Paramétrer la création de votre base de donnée, dans le fichier .env du projet, et modifier la variable d'environnement :
  
@@ -192,10 +196,14 @@ Choix des couleurs en tenant compte des aspects suivants :
 * Couleurs non genrées : ce qui est un bon point pour aborder la sexualité de manière inclusive.
 * Accessibilité visuelle : contraste élevé et en plus prévoir : Des icônes pour renforcer les messages, une taille de texte ajustable.
   
-Bleu canard (#008080) → couleur principale (boutons, entêtes) : Bleu canard (#008080) est souvent perçu comme une couleur calme, rassurante et sérieuse, ce qui peut convenir à une application éducative ou de santé.
+Bleu canard (#008080) → couleur principale (boutons, entêtes) : Bleu canard (#008080) est souvent perçu comme une couleur calme, rassurante et sérieuse, ce qui peut convenir à une application éducative sur le thème de la santé/prévention.
 
 Orange foncé (#cc7000) → couleur d'accent (liens, éléments cliquables)
 
 Gris anthracite (#1F2937) → texte principal
 
 Gris clair (#f3f4f6) → arrière-plan
+
+## Quelques autres commandes utiles
+
+symfony server:start --no-tls : Lance le serveur avec l’option pour désactiver TLS (HTTPS) :
