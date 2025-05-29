@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche pédagogique - S'informer sur les infections et les maladies{% endblock %}
+
+{% block body %}
+<div class="container my-4">
+    <a href="{{ path('app_fiches_pratiques') }}" class="btn btn-canard mb-4">
+        ← Retour aux fiches pratiques
+    </a>
+
+    <h1 class="mb-3" style="color: #008080;">S'informer sur les infections et les maladies</h1>
+
+    <p class="lead" style="color: #1F2937;">
+        Cette fiche pédagogique est réservée à un public de plus de 15 ans.<br>
+        Elle aborde les Infections Sexuellement Transmissibles (IST), les maladies de la sphère sexuelle, et explique comment se protéger et protéger les autres.
+    </p>
+
+    <section>
+        <h2 style="color: #008080;">Les Infections Sexuellement Transmissibles (IST)</h2>
+        <p>
+            Les IST sont des infections qui se transmettent principalement lors de rapports sexuels. Parmi les plus courantes, on trouve la chlamydia, la gonorrhée, la syphilis, et le VIH.
+            Il est important de connaître leurs symptômes, les risques et les traitements disponibles.
+        </p>
+    </section>
+
+    <section>
+        <h2 style="color: #008080;">Les maladies de la sphère sexuelle</h2>
+        <p>
+            Certaines maladies peuvent affecter les organes reproducteurs, causant des douleurs ou des troubles. La prévention, le dépistage régulier et l’accès aux soins sont essentiels pour limiter leur impact.
+        </p>
+    </section>
+
+    <section>
+        <h2 style="color: #008080;">Se protéger et protéger les autres</h2>
+        <p>
+            Utiliser des préservatifs, faire des tests régulièrement, et communiquer ouvertement avec ses partenaires sont des gestes clés pour se protéger et limiter la transmission des IST.
+            Le respect, le consentement et la responsabilité sont au cœur de cette démarche.
+        </p>
+    </section>
+</div>
+{% endblock %}

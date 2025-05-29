@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Structures d'accompagnement santé en Isère{% endblock %}
+
+{% block stylesheets %}
+
+<div class="text-start mb-3">
+    <a href="{{ path('app_lumea') }}" class="btn btn-canard">
+    ← Retour à l'accueil
+
+<style>
+    body {
+        background-color: #f3f4f6; /* Gris clair */
+        color: #1F2937; /* Gris anthracite */
+        font-size: 18px;
+    }
+    h1 {
+        color: #008080; /* Bleu canard */
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+    ul.structures-list {
+        list-style: none;
+        padding: 0;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    ul.structures-list li {
+        background: white;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        padding: 1rem 1.5rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        font-size: 1.1rem;
+    }
+    ul.structures-list li .header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    ul.structures-list li .icone {
+        font-size: 2.5rem;
+        flex-shrink: 0;
+    }
+    ul.structures-list li .nom {
+        color: #008080; /* Bleu canard */
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+    ul.structures-list li .description {
+        font-style: italic;
+        color: #cc7000; /* Orange foncé */
+    }
+    ul.structures-list li .adresse,
+    ul.structures-list li .tel,
+    ul.structures-list li .site {
+        color: #1F2937; /* Texte principal */
+    }
+    ul.structures-list li .tel a,
+    ul.structures-list li .site a {
+        color: #cc7000; /* Orange foncé */
+        font-weight: bold;
+        text-decoration: none;
+    }
+    ul.structures-list li .tel a:hover,
+    ul.structures-list li .tel a:focus,
+    ul.structures-list li .site a:hover,
+    ul.structures-list li .site a:focus {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<h1>Structures d'accompagnement santé en Isère</h1>
+<p style="max-width: 700px; margin: 0 auto 2rem auto; text-align: center;">
+    Retrouvez ici une liste de structures pouvant accompagner les jeunes dans leur santé, leur sexualité et leur bien-être en Isère.
+</p>
+
+<ul class="structures-list" role="list">
+    {% for structure in structures %}
+        <li>
+            <div class="header">
+                <span class="icone" aria-hidden="true">{{ structure.icone }}</span>
+                <span class="nom">{{ structure.nom }}</span>
+            </div>
+            <div class="description">{{ structure.description }}</div>
+            <div class="adresse">📍 {{ structure.adresse }}</div>
+            <div class="tel">📞 <a href="tel:{{ structure.tel|replace({' ':'','-':''}) }}">{{ structure.tel }}</a></div>
+            {% if structure.site %}
+                <div class="site">🔗 <a href="{{ structure.site }}" target="_blank" rel="noopener noreferrer">{{ structure.site }}</a></div>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -23,16 +23,26 @@ security:
                 default_target_path: app_lumea   # Utiliser le nom de la route, pas le chemin
 
             logout:
-                path: app_logout                 # Ici, c'était "app_logout_sucess" qui semble erroné
+                path: app_logout                 
                 target: app_logout_success       # Nom de route correct pour la redirection
 
     access_control:
         - { path: ^/logout$, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/docs, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/nous_contacter, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/demande/enregistrement, roles: ROLE_DIRECTEUR}
-        - { path: ^/fiche_connaitre_corps, roles: ROLE_USER }
-        - { path: ^/videos, roles: ROLE_USER }
-        - { path: ^/fiches-pratiques, roles: ROLE_USER }
         - { path: ^/lumea, roles: ROLE_USER }
+        - { path: ^/fiches_pratiques, roles: ROLE_USER }
+        - { path: ^/fiche_connaitre_corps, roles: ROLE_USER }
+        - { path: ^/fiche_emotions, roles: ROLE_USER }
+        - { path: ^/fiche_maladies, roles: ROLE_USER }
+        - { path: ^/fiche_contraception, roles: ROLE_USER }
+        - { path: ^/fiche_violences, roles: ROLE_USER }
+        - { path: ^/fiche_droits, roles: ROLE_USER }
+        - { path: ^/videos, roles: ROLE_USER }
+        - { path: ^/quiz, roles: ROLE_USER }
+        - { path: ^/contacts_urgence, roles: ROLE_USER }
+        - { path: ^/professionnels, roles: ROLE_USER }        
        
 
 when@test:

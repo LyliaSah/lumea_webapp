@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<div class="container my-4">
+    <h1>{{ title }}</h1>
+
+    <p class="lead">{{ intro }}</p>
+
+    <section>
+        {{ content|raw }}
+    </section>
+
+    <a href="{{ path('app_fiches_pratiques') }}" class="btn" style="background-color:#cc7000; color:#fff; border-radius:5px; padding:10px 20px;">
+        ← Retour aux fiches pratiques
+    </a>
+</div>
+{% endblock %}

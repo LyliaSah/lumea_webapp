@@ -82,8 +82,10 @@ Bienvenue sur lumea — LUMEA est une application web sécurisée et éducative 
     - [Installation :](#installation-)
   - [Installer les bundles nécessaires](#installer-les-bundles-nécessaires)
   - [Démarrage](#démarrage)
+  - [Pour créer une nouvelle page sous Symfony, par exemple la page Quiz](#pour-créer-une-nouvelle-page-sous-symfony-par-exemple-la-page-quiz)
   - [Choix des couleurs](#choix-des-couleurs)
   - [Quelques autres commandes utiles](#quelques-autres-commandes-utiles)
+  - [créer un bandle pour créer la page modifier mdp? A REVOIR](#créer-un-bandle-pour-créer-la-page-modifier-mdp-a-revoir)
  
 ---
  
@@ -188,6 +190,16 @@ composer require doctrine/doctrine-fixtures-bundle --dev
 Installing & Setting up the Symfony Framework (Symfony Docs)
 Screencast     Do you prefer video tutorials? Check out the Harmonious Development with Symfony screencast series.    Technical Requirements Before creating your first Symfony application you must:...
 
+## Pour créer une nouvelle page sous Symfony, par exemple la page Quiz
+1/ créer une nouvelle route
+Saisie de la commande : php bin/console make:controller QuizController
+Résultat Symfony va créer un fichier src/Controller/QuizController.php et templates/quiz/index.html.twig
+2/ modifier le controlleur pour créer la page
+Dans le fichier src/Controller/QuizController.php, ajouter la méthode (contenu à modifier en fonction de nos besoins)
+3/ Modifier le template quiz.twig.html
+Ouvrir templates/quiz/index.html.twig et personnaliser
+4/ Tester dans le navigateur
+symfony server:start ou symfony server:start --no-tls
 
 ## Choix des couleurs 
 
@@ -207,3 +219,9 @@ Gris clair (#f3f4f6) → arrière-plan
 ## Quelques autres commandes utiles
 
 symfony server:start --no-tls : Lance le serveur avec l’option pour désactiver TLS (HTTPS) :
+
+
+
+## créer un bandle pour créer la page modifier mdp? A REVOIR
+
+

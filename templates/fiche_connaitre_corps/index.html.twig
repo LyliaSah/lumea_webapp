@@ -1,20 +1,76 @@
+{# templates/fiche_connaitre_corp/index.html.twig #}
+
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello FicheConnaitreCorpController!{% endblock %}
+{% block title %}Fiche pédagogique : Connaître son corps{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="container my-4">
+    <h1 class="text-center mb-4" style="color: #008080;">Fiche pédagogique — Connaître son corps</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <section>
+        <h2 style="color: #008080;">Objectifs</h2>
+        <ul>
+            <li>Permettre aux jeunes d’identifier les différentes parties de leur corps de manière claire et respectueuse.</li>
+            <li>Favoriser l’estime de soi, le respect de son corps et de son intimité.</li>
+            <li>Sensibiliser aux changements physiques liés à la puberté.</li>
+        </ul>
+    </section>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/root/dev/lumea_webapp/src/Controller/FicheConnaitreCorpController.php</code></li>
-        <li>Your template at <code>/root/dev/lumea_webapp/templates/fiche_connaitre_corp/index.html.twig</code></li>
-    </ul>
+    <section>
+        <h2 style="color: #008080;">Contenus</h2>
+        <p>Cette fiche présente les parties principales du corps humain, leurs fonctions de base, et explique les transformations naturelles pendant la puberté. Elle encourage une approche positive et respectueuse du corps.</p>
+
+        <h3>1. Les parties du corps</h3>
+        <ul>
+            <li>Tête : cerveau, yeux, oreilles, bouche, nez</li>
+            <li>Tronc : poitrine, ventre, dos</li>
+            <li>Membres : bras, mains, jambes, pieds</li>
+        </ul>
+
+        <h3>2. Le corps change pendant la puberté</h3>
+        <ul>
+            <li>Croissance des os et des muscles</li>
+            <li>Apparition des poils</li>
+            <li>Changements hormonaux qui influencent le corps et les émotions</li>
+        </ul>
+
+        <h3>3. Respecter son corps</h3>
+        <ul>
+            <li>Importance de l’hygiène corporelle</li>
+            <li>Apprendre à dire « non » et respecter son intimité</li>
+            <li>Parler à un adulte de confiance en cas de questions ou de difficultés</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 style="color: #008080;">Activités proposées</h2>
+        <ul>
+            <li>Jeu de reconnaissance : sur un dessin ou une silhouette, nommer ensemble les parties du corps.</li>
+            <li>Discussion en groupe sur ce que signifie « respecter son corps ».</li>
+            <li>Atelier d’expression autour des émotions liées aux changements du corps.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 style="color: #008080;">Public visé</h2>
+        <p>Jeunes de 12 à 15 ans, enseignants, éducateurs, professionnels de santé.</p>
+    </section>
+
+    <section>
+        <h2 style="color: #008080;">Ressources complémentaires</h2>
+        <p>
+            Documentation PDF disponible pour téléchargement : 
+            <a href="{{ asset('docs/fiche_connaitre_corps.pdf') }}" target="_blank" class="text-decoration-none" style="color: #cc7000;">
+                📄 Télécharger la fiche complète
+            </a>
+        </p>
+    </section>
+
+    <div class="text-center mt-4">
+        <a href="{{ path('app_fiches_pratiques') }}" class="btn" style="background-color: #cc7000; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">
+            ← Retour aux fiches pratiques
+        </a>
+    </div>
 </div>
 {% endblock %}

@@ -1,0 +1,74 @@
+{# templates/fiche_emotions/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche pédagogique : Gérer ses émotions et ses relations{% endblock %}
+
+{% block body %}
+<div class="container my-4">
+    <h1 class="text-center mb-4" style="color: #008080;">Fiche pédagogique — Gérer ses émotions et ses relations</h1>
+
+    <section>
+        <h2 style="color: #008080;">Objectifs</h2>
+        <ul>
+            <li>Comprendre et gérer ses émotions dans différents contextes (famille, amis, école).</li>
+            <li>Apprendre à s’affirmer tout en respectant les autres.</li>
+            <li>Développer des relations saines et équilibrées.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 style="color: #008080;">Contenus</h2>
+        <p>Cette fiche aborde la gestion des émotions dans les relations sociales et familiales, ainsi que l’affirmation de soi.</p>
+
+        <h3>1. Identifier ses émotions dans les relations</h3>
+        <ul>
+            <li>Reconnaître les émotions déclenchées par les interactions avec la famille, les amis et à l’école.</li>
+            <li>Comprendre comment les émotions influencent les comportements.</li>
+        </ul>
+
+        <h3>2. Apprendre à s’affirmer</h3>
+        <ul>
+            <li>Exprimer ses besoins et ses limites de manière claire et respectueuse.</li>
+            <li>Différencier affirmation de soi, agressivité et passivité.</li>
+        </ul>
+
+        <h3>3. Gérer les conflits et cultiver des relations positives</h3>
+        <ul>
+            <li>Techniques de communication non violente.</li>
+            <li>Écoute active et empathie.</li>
+            <li>Prévenir et résoudre les conflits.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 style="color: #008080;">Activités proposées</h2>
+        <ul>
+            <li>Jeux de rôle pour pratiquer l’affirmation de soi.</li>
+            <li>Ateliers d’expression sur les émotions ressenties en groupe.</li>
+            <li>Discussions guidées sur la résolution de conflits.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 style="color: #008080;">Public visé</h2>
+        <p>Jeunes dès 12 ans, éducateurs, enseignants, parents.</p>
+    </section>
+
+    <section>
+        <h2 style="color: #008080;">Ressources complémentaires</h2>
+        <p>
+            Documentation PDF disponible pour téléchargement : 
+            <a href="{{ asset('docs/fiche_emotions_relations.pdf') }}" target="_blank" class="text-decoration-none" style="color: #cc7000;">
+                📄 Télécharger la fiche complète
+            </a>
+        </p>
+    </section>
+
+    <div class="text-center mt-4">
+        <a href="{{ path('app_fiches_pratiques') }}" class="btn" style="background-color: #cc7000; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">
+            ← Retour aux fiches pratiques
+        </a>
+    </div>
+</div>
+{% endblock %}

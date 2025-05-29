@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lutter contre les violences et les discriminations{% endblock %}
+
+{% block body %}
+<div class="container my-4">
+    <a href="{{ path('app_fiches_pratiques') }}" class="btn btn-canard mb-3">← Retour aux fiches pratiques</a>
+    <h1>Lutter contre les violences et les discriminations</h1>
+    <p>Consentement, transphobie, réseaux sociaux, pornographie... Contenu réservé à un public de plus de 15 ans.</p>
+
+    <section>
+        <h2>Le consentement</h2>
+        <p>Comprendre ce qu'est le consentement, son importance et comment le respecter dans toutes les relations.</p>
+    </section>
+
+    <section>
+        <h2>Violences et discriminations</h2>
+        <p>Identifier les différentes formes de violences et discriminations, notamment liées au genre, à l'orientation sexuelle et à l'identité.</p>
+    </section>
+
+    <section>
+        <h2>Réseaux sociaux et pornographie</h2>
+        <p>Analyse des influences des réseaux sociaux et de la pornographie sur les jeunes, et conseils pour un usage responsable.</p>
+    </section>
+</div>
+{% endblock %}

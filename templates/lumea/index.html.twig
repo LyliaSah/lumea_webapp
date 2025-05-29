@@ -4,69 +4,64 @@
 
 {% block body %}
 
- {# Bouton Ajouter #}
-  <a href="{{ path('app_demande_enregistrement') }}" class="btn btn-primary" style="padding: 10px 20px; text-decoration: none; border-radius: 5px;">
-    Ajouter un enseignant ou un parent <br> accès reservé au directeur 
-  </a>
-    <div class="mb-5">
-        <p>
-            Lumea est un espace dédié aux jeunes pour mieux comprendre la vie affective, relationnelle et la sexualité.
-Ici, tu trouveras des informations fiables, des ressources utiles et des outils pédagogiques pour t’aider à :
-
-✅ développer ton estime de toi
-✅ faire des choix éclairés
-✅ construire des relations respectueuses
-✅ prévenir les violences et les discriminations
-
-Lumea, c’est un coup de pouce pour t'accompagner dans ton parcours, avec bienveillance et sans tabou.
-        <div class="d-flex flex-column flex-md-row justify-content-center gap-3 my-4">
-    <a href="{{ path('app_fiches_pratiques') }}" class="btn btn-canard">
-    J'accède aux fiches pratiques
+<a href="{{ path('app_demande_enregistrement') }}"
+   class="btn"
+   style="background-color: #cc7000; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; border: none;">
+   Ajouter un enseignant ou un parent <br> Accès réservé au directeur
 </a>
-<a href="{{ path('app_videos') }}" class="btn btn-canard">
-    J'accède aux vidéos et podcasts
-</a>
-  
-    <button class="btn btn-canard">J'accède aux quiz</button>
-    <button class="btn btn-canard">J'accède aux contacts d'urgence</button>
-    <button class="btn btn-canard">Les professionnels autour de moi</button>
-</div>
 
+<div class="mb-5">
+    <p>
+        Lumea est un espace dédié aux jeunes pour mieux comprendre la vie affective, relationnelle et la sexualité.
+        Ici, tu trouveras des informations fiables, des ressources utiles et des outils pédagogiques pour t’aider à :
 
-{# Carrousel - en haut de la page #}
-<div id="carouselExampleDark" class="carousel carousel-dark slide mt-5" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="5000">
-            <img src="{{ asset('images/carroussel1.svg') }}" class="d-block w-100" alt="Slide 1">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>A la une</h5>
-                <p>Une ligne d'écoute, d'information et d'orientation gratuite.</p>
-            </div>
-        </div>
-        <div class="carousel-item" data-bs-interval="5000">
-            <img src="{{ asset('images/carroussel2.svg') }}" class="d-block w-100" alt="Slide 2">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Rejoins-nous sur Instagram</h5>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="{{ asset('images/carroussel3.svg') }}" class="d-block w-100" alt="Slide 3">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Journée des droits de la femme</h5>
-            </div>
-        </div>
+        ✅ développer ton estime de toi
+        ✅ faire des choix éclairés
+        ✅ construire des relations respectueuses
+        ✅ prévenir les violences et les discriminations<br>
+
+        Lumea, est là pour t'accompagner dans ton parcours, avec bienveillance et sans tabou.
+    </p>
+
+    <div class="d-flex flex-column flex-md-row justify-content-center gap-3 my-4">
+        <a href="{{ path('app_fiches_pratiques') }}" class="btn btn-canard">J'accède aux fiches pratiques</a>
+        <a href="{{ path('app_videos') }}" class="btn btn-canard">J'accède aux vidéos et podcasts</a>
+        <a href="{{ path('app_quiz') }}" class="btn btn-canard">J'accède aux quiz</a>
+        <a href="{{ path('app_contacts_urgence') }}" class="btn btn-canard">J'accède aux contacts d'urgence</a>
+        <a href="{{ path('app_professionnels') }}" class="btn btn-canard">Les professionnels autour de moi</a>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-    </button>
-</div>
 
 
+    {# Carrousel - en haut de la page #}
+    <div id="carouselExampleDark" class="carousel carousel-dark slide mt-5" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="5000">
+                <img src="{{ asset('images/carroussel1.svg') }}" class="d-block w-100" alt="Slide 1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>A la une</h5>
+                    <p>Une ligne d'écoute, d'information et d'orientation gratuite.</p>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="{{ asset('images/carroussel2.svg') }}" class="d-block w-100" alt="Slide 2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Rejoins-nous sur Instagram</h5>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{{ asset('images/carroussel3.svg') }}" class="d-block w-100" alt="Slide 3">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Journée des droits de la femme</h5>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
     </div>
+</div>
 
 {% endblock %}
-
-

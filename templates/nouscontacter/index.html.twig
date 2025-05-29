@@ -1,0 +1,178 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nous Contacter{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        body {
+            background-color: #f3f4f6; /* gris clair */
+            color: #1F2937; /* gris anthracite */
+            font-size: var(--font-base-size);
+            font-family: Arial, sans-serif;
+        }
+
+        h1, h2 {
+            color: #008080; /* bleu canard */
+        }
+
+        a {
+            color: #cc7000; /* orange foncé */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-canard {
+            background-color: #008080 !important;
+            color: white !important;
+            border-color: #008080 !important;
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-canard:hover {
+            background-color: #006666 !important;
+            border-color: #006666 !important;
+        }
+
+        form {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+            color: #008080;
+        }
+
+        input[type="email"], textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1.5px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            resize: vertical;
+        }
+
+        input[type="email"]:focus, textarea:focus {
+            outline: none;
+            border-color: #008080;
+            box-shadow: 0 0 4px #008080;
+        }
+
+        .message-success {
+            background-color: #d1f2f0;
+            border: 1px solid #008080;
+            padding: 1rem;
+            margin: 1rem auto;
+            max-width: 500px;
+            border-radius: 8px;
+            color: #004d4d;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Icône enveloppe à gauche du titre */
+        .icon-envelope {
+            vertical-align: middle;
+            margin-right: 0.5rem;
+            fill: #008080;
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Contrôle taille texte */
+        .text-size-controls {
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .text-size-controls button {
+            background-color: #008080;
+            color: white;
+            border: none;
+            padding: 0.25rem 0.7rem;
+            margin: 0 0.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .text-size-controls button:hover {
+            background-color: #006666;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+<div class="container my-4">
+    <div class="text-start mb-3">
+        <a href="{{ path('app_lumea') }}" class="btn btn-canard">
+            ← Retour à l'accueil
+        </a>
+    </div>
+
+    <h1>
+        <svg class="icon-envelope" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+        Nous contacter
+    </h1>
+
+    <div class="text-size-controls" aria-label="Contrôle de la taille du texte">
+        <button id="decreaseText" aria-label="Réduire la taille de texte">A-</button>
+        <button id="increaseText" aria-label="Augmenter la taille de texte">A+</button>
+    </div>
+
+    {% if messageEnvoye %}
+        <div class="message-success" role="alert">
+            Votre demande a bien été envoyée. Nous vous répondrons rapidement.
+        </div>
+    {% else %}
+        <form method="post" action="{{ path('app_nous_contacter') }}" novalidate>
+            <label for="email">Adresse e-mail</label>
+            <input type="email" id="email" name="email" placeholder="votre.email@example.com" required aria-required="true" aria-describedby="emailHelp" />
+
+            <label for="demande">Préciser votre demande</label>
+            <textarea id="demande" name="demande" rows="4" placeholder="Votre message ici..." required aria-required="true"></textarea>
+
+            <button type="submit" class="btn-canard">Envoyer</button>
+        </form>
+    {% endif %}
+</div>
+
+<script>
+    // Gestion taille texte
+    const root = document.documentElement;
+    const increaseBtn = document.getElementById('increaseText');
+    const decreaseBtn = document.getElementById('decreaseText');
+
+    increaseBtn.addEventListener('click', () => {
+        let style = window.getComputedStyle(root);
+        let fontSize = parseFloat(style.getPropertyValue('--font-base-size'));
+        if (fontSize < 24) {
+            root.style.setProperty('--font-base-size', (fontSize + 2) + 'px');
+        }
+    });
+
+    decreaseBtn.addEventListener('click', () => {
+        let style = window.getComputedStyle(root);
+        let fontSize = parseFloat(style.getPropertyValue('--font-base-size'));
+        if (fontSize > 12) {
+            root.style.setProperty('--font-base-size', (fontSize - 2) + 'px');
+        }
+    });
+</script>
+{% endblock %}

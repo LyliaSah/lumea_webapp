@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contacts d'urgence{% endblock %}
+
+{% block stylesheets %}
+
+<div class="text-start mb-3">
+    <a href="{{ path('app_lumea') }}" class="btn btn-canard">
+    ← Retour à l'accueil
+
+<style>
+    body {
+        background-color: #f3f4f6; /* Gris clair */
+        color: #1F2937; /* Gris anthracite */
+        font-size: 18px;
+    }
+    h1 {
+        color: #008080; /* Bleu canard */
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    ul.contacts-list {
+        list-style: none;
+        padding: 0;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    ul.contacts-list li {
+        background: white;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        padding: 1rem 1.5rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 1.1rem;
+    }
+    ul.contacts-list li .icone {
+        font-size: 2rem;
+        flex-shrink: 0;
+    }
+    ul.contacts-list li .info {
+        flex-grow: 1;
+    }
+    ul.contacts-list li .info strong {
+        color: #008080; /* Bleu canard */
+        font-size: 1.2rem;
+    }
+    ul.contacts-list li .numero a {
+        color: #cc7000; /* Orange foncé */
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 1.3rem;
+    }
+    ul.contacts-list li .numero a:hover,
+    ul.contacts-list li .numero a:focus {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+    <h1>Contacts d'urgence</h1>
+    <p style="max-width: 600px; margin: 0 auto 2rem auto; text-align: center;">
+        En cas de besoin, contactez rapidement ces services spécialisés.
+    </p>
+    <ul class="contacts-list" role="list">
+        {% for contact in contacts %}
+            <li>
+                <span class="icone" aria-hidden="true">{{ contact.icone }}</span>
+                <div class="info">
+                    <strong>{{ contact.titre }}</strong><br>
+                    <small>{{ contact.description }}</small>
+                </div>
+                <div class="numero">
+                    <a href="tel:{{ contact.tel }}">{{ contact.numero }}</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

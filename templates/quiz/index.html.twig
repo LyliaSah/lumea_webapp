@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FAQ Sexualité des jeunes{% endblock %}
+
+{% block body %}
+
+<div class="text-start mb-3">
+    <a href="{{ path('app_lumea') }}" class="btn btn-canard">
+        ← Retour à l'accueil
+    </a>
+</div>
+
+<h1>FAQ Sexualité des jeunes</h1>
+
+<div class="text-size-controls" aria-label="Contrôle de la taille du texte">
+    <button id="decreaseText" aria-label="Réduire la taille du texte">A-</button>
+    <button id="increaseText" aria-label="Augmenter la taille du texte">A+</button>
+</div>
+
+<div class="faq-list" role="list">
+    {% for faq in faqs %}
+        <div class="faq-item" role="listitem" tabindex="0" aria-expanded="false" aria-controls="faq-answer-{{ loop.index }}">
+            <div class="faq-question">
+                <!-- Icône flèche droite -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
+                {{ faq.question }}
+            </div>
+            <div class="faq-answer" id="faq-answer-{{ loop.index }}">
+                {{ faq.answer }}
+            </div>
+        </div>
+    {% else %}
+        <p>Aucune question disponible.</p>
+    {% endfor %}
+</div>
+
+<script>
+    // Toggle affichage réponse au clic ou touche Entrée / Espace
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const expanded = item.getAttribute('aria-expanded') === 'true';
+            item.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        });
+        item.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                item.click();
+            }
+        });
+    });
+
+    // Gestion taille texte
+    const root = document.documentElement;
+    const increaseBtn = document.getElementById('increaseText');
+    const decreaseBtn = document.getElementById('decreaseText');
+
+    increaseBtn.addEventListener('click', () => {
+        let style = window.getComputedStyle(root);
+        let fontSize = parseFloat(style.getPropertyValue('--font-base-size'));
+        if (fontSize < 24) {
+            root.style.setProperty('--font-base-size', (fontSize + 2) + 'px');
+        }
+    });
+
+    decreaseBtn.addEventListener('click', () => {
+        let style = window.getComputedStyle(root);
+        let fontSize = parseFloat(style.getPropertyValue('--font-base-size'));
+        if (fontSize > 12) {
+            root.style.setProperty('--font-base-size', (fontSize - 2) + 'px');
+        }
+    });
+</script>
+
+{% endblock %}

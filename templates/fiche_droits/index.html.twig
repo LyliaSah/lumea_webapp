@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mb-4">{{ title }}</h1>
+        <p class="lead">{{ desc }}</p>
+
+        <section>
+            <h2>Comprendre ses droits</h2>
+            <p>
+                Il est essentiel de connaître vos droits pour vous protéger efficacement. La loi protège les jeunes contre toute forme d'abus ou de violence.
+            </p>
+        </section>
+
+        <section>
+            <h2>Comment détecter les abus</h2>
+            <p>
+                Apprenez à reconnaître les signes d'abus pour pouvoir agir rapidement et obtenir de l’aide.
+            </p>
+        </section>
+
+        <section>
+            <h2>Demander de l’aide</h2>
+            <p>
+                Des ressources et des interlocuteurs existent pour vous soutenir. N’hésitez pas à en parler à un adulte de confiance ou à un professionnel.
+            </p>
+        </section>
+
+        <a href="{{ path('app_fiches_pratiques') }}" class="btn" style="background-color:#cc7000; color:#fff; border-radius:5px; padding:10px 20px;">
+            ← Retour aux fiches pratiques
+        </a>
+    </div>
+{% endblock %}
